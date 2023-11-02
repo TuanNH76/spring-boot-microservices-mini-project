@@ -8,6 +8,7 @@ import com.example.orderservice.repository.OrderRepository;
 import com.example.orderservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 import java.util.UUID;
@@ -18,6 +19,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    WebClient webClient;
     @Override
     public String placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
